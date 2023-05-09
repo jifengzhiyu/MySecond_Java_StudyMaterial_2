@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tanhua-admin?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+    username: root
+    password: root
+  rabbitmq:
+    host: 192.168.136.160
+    port: 5672
+    username: guest
+    password: guest    
+  redis:
+    host: 192.168.136.160
+    port: 6379
+  cloud:  #nacos配置
+    nacos:
+      discovery:
+        server-addr: 192.168.136.160:8848
+dubbo:    #dubbo配置
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    check: false
+    retries: 0
+  protocols:
+    dubbo:
+      port: -1
+
+#配置短信平台信息
+tanhua:  #手机验证码，咱们自己注册（不要白嫖）
+  sms:
+    signName: 物流云商
+    templateCode: SMS_106590012
+    accessKey: LTAI4GKgob9vZ53k2SZdyAC7
+    secret: LHLBvXmILRoyw0niRSBuXBZewQ30la
+  oss:
+    accessKey: LTAI4GKgob9vZ53k2SZdyAC7
+    secret: LHLBvXmILRoyw0niRSBuXBZewQ30la
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucketName: tanhua143
+    url: https://tanhua143.oss-cn-beijing.aliyuncs.com
+  aip:
+    appId: 22837663
+    apiKey: nA43galrxfUZTGtYRVK8F8tb
+    secretKey: MQp567q4nGnIKfniURa2XAw8bT1SlPE3
+  huanxin:
+    appkey: 1110201018107234#tanhua
+    clientId: YXA6nxJJ_pdEQ_eYUlqcRicS4w
+    clientSecret: YXA6GMUxVEZhAvxlMn4OvHSXbWuEUTE
+#mybaits-plus
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tb_    #数据库表前缀
+      id-type: auto        #数据库表主键的策略
